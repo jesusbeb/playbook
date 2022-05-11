@@ -21,4 +21,9 @@ describe('Test for UserService', () => {
         expect(userInfoInList[3]).toBe("sin bio");
     })
 
+    test('3. Update username', () => {
+        const user= UserService.create(1, "jesusBeb", "Jesus")  // se instancia objeto a partir de la clase UserService mediante un metodo "create" y que a su vez hereda de la clase User
+        UserService.updateUserUsername(user, "JBeltran")    // se usa el metodo updateUserUserName de la clase UserService. "user" objeto instanciado que se envia. "JBeltran" nuevo username que se envia
+        expect(user.username).toBe("JBeltran")
+    })
 })
