@@ -26,4 +26,14 @@ describe('Test for UserService', () => {
         UserService.updateUserUsername(user, "JBeltran")    // se usa el metodo updateUserUserName de la clase UserService. "user" objeto instanciado que se envia. "JBeltran" nuevo username que se envia
         expect(user.username).toBe("JBeltran")
     })
+
+    test("4. Given a list of users give me the list of usernames", () => {
+        const user1= UserService.create(1, "jesusBeB1", "Jesus1")    // se instancia 3 objetos con la clase UserService
+        const user2= UserService.create(2, "jesusBeB2", "Jesus2")
+        const user3= UserService.create(3, "jesusBeB3", "Jesus3")
+        const usernames = UserService.getAllUsernames([user1, user2, user3])    // usernames sera una lista que obtendra la informacion del metodo "getAllUsernames" de la clase UserService
+        expect(usernames).toContain("jesusBeB1")
+        expect(usernames).toContain("jesusBeB2")
+        expect(usernames).toContain("jesusBeB3")
+    })    
 })

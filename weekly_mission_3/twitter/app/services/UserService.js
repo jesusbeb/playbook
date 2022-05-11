@@ -9,8 +9,12 @@ class UserService{
         return [usuario.id, usuario.username, usuario.name, usuario="sin bio"];
     }
 
-    static updateUserUsername(usuario, username_nuevo){     // updateUserUsername(objeto_instanciado_que_recibe, parametro_que_sera_cambiado)
+    static updateUserUsername(usuario, username_nuevo){     // updateUserUsername(objeto_instanciado_que_recibe, parametro_que_sera_cambiado). Metodo que cambia la propiedad "username" del objeto que recibe
         return usuario.username= username_nuevo;
+    }
+
+    static getAllUsernames([usuario1, usuario2, usuario3]){ // Metodo que recibe 3 objetos instanciados y regresa los parametros username de cada uno en una lista
+        return [usuario1.username, usuario2.username, usuario3.username];
     }
 }
 module.exports= UserService;
