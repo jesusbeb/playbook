@@ -8,8 +8,8 @@ class User {
         this.lastUpdated= new Date()
     }
     
-    get getUsername(){
-        return this.username
+    get getUsername(){      // get nombreFuncion()   obtiene la propiedad Username
+        return this.username    // retorna la propiedad obtenida
     }
 
     get getBio(){
@@ -22,6 +22,14 @@ class User {
 
     get getLastUpdated(){
         return this.lastUpdated
+    }
+
+    set setUsername(newUsername){   // set nombreFuncion(parametro)     recibe un parametro que modificara una propiedad de la clase
+        this.username= newUsername  // this.propiedadClase= parametrorecibido   modifica o actualiza la propiedad de la clase
+    }
+
+    set setBio(newBio){
+        this.bio = newBio
     }
 }
 module.exports= User;

@@ -19,4 +19,14 @@ describe("Unit Tests for User class", () => {
         expect(user.getDateCreated).not.toBeUndefined()
         expect(user.getLastUpdated).not.toBeUndefined()
     });
+
+    test('Add setters', () => {
+        const user= new User(1, "jesusBeB", "Jesus", "Bio")
+        
+        user.setUsername= "jbeltran"    // setUsername cambia o actualiza la propiedad Username
+        expect(user.username).toBe("jbeltran")
+
+        user.setBio= "New bio"  // setBio cambia o actualiza la propiedad Bio
+        expect(user.bio).toBe("New bio")
+    })
 })
