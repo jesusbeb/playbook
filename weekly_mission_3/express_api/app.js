@@ -1,6 +1,6 @@
-const express= require ('express')  // Usando objeto express
-const app= express()    // App de Express
-app.use(express.json())     // Indicamos que usaremos JSON
+const express= require ('express')  // importando el modulo express que es una dependencia
+const app= express()    // Sintaxis de express en la documentacion. Se inicializa el objeto
+app.use(express.json())     // Indicamos que usaremos el formato JSON
 const port= 3000    // Puerto en que vamos a ver nuestra app: localhost:3000
 
 // Esto es un Endpoint
@@ -12,14 +12,14 @@ GET Crea un endpoint que regrese una lista de explorers
 2. Crea algunos objetos y regresa la lista como se indica.
 3. Agrega el código HTTP CODE 200 en el request:
  */
-app.get('/v1/explorers', (req, res) => {
+app.get('/v1/explorers', (req, res) => {    
     console.log(`Api Explorers GET ALL requests ${new Date()}`)
     const explorer1 = {id: 1, name: "Jesus1"}
     const explorer2 = {id: 2, name: "Jesus2"}
     const explorer3 = {id: 3, name: "Jesus3"}
     const explorer4 = {id: 4, name: "Jesus4"}
     const explorers = [explorer1, explorer2, explorer3, explorer4]
-    res.status(200).json(explorers)     // HTTP CODE STATUS: 200
+    res.status(200).json(explorers)     // HTTP CODE STATUS: 200, se regresa este codigo indicando que la peticion fue exitosa. .json(explorers) significa que se regresara en formato json
 })
 // Elige el primer request GET y da click en el botón SEND.
 //Verifica que te responda la información esperada.
