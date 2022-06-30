@@ -3,7 +3,7 @@ const UserService = require('./../services/UserService')
 class UserView{
 
     static createUser(payload){
-        
+        /*
         if ( payload === null ){    // requerimiento 1
             return {error: 'payload no existe'}
         }      
@@ -13,6 +13,22 @@ class UserView{
         }
         else {  // requerimiento 2 y 3
             return {error: 'necesitan tener un valor válido'}
+        }
+    }*/
+    
+        if( payload === null ){ // Requerimiento 1
+            return {error: 'payload no existe'}
+        }
+        else if( payload.username === null || payload.name === null || payload.id === null )   // Requerimiento 2
+            return {error: 'necesitan tener un valor válido'}
+        
+        else if ( ( payload.username === null && typeof payload.name === 'string' && typeof payload.id === 'number' )   // Requerimiento 3
+            || ( typeof payload.username === 'string' && payload.name === null && typeof payload.id === 'number' )
+            || ( typeof payload.username === 'string' && typeof payload.name === 'string' && payload.id === null ) )
+            return {error: 'necesitan tener un valor válido'}
+        
+        else{
+            return UserService.create(payload.id, payload.username, payload.name)
         }
     }
 }
@@ -28,39 +44,3 @@ Requerimientos:
 4. Verifica que se pueda crear un objeto `User`, al enviar un payload con las siguientes propiedades: `username`, `id` y `name`.
 */
 
-
-/*
-if(payload === null){
-    return {error: 'payload no existe'}
-}
-else if( payload.username === null || payload.name === null || payload.id === null ){
-    return {error: 'necesitan tener un valor válido'}
-}
-else if ( ( payload.username === null && typeof payload.name === 'string' && typeof payload.id === 'number' )
-       || ( typeof payload.username === 'string' && payload.name === null && typeof payload.id === 'number' )
-       || ( typeof payload.username === 'string' && typeof payload.name === 'string' && payload.id === null ) )
-{error: 'necesitan tener un valor válido'}
-}*/
-
-
-
-
-
-
-
-/*
-class UserView{
-
-    static createUser(payload){
-        
-        if ( payload === null ){    // requerimiento 1
-            return {error: 'payload no existe'}
-        }
-        else if ( typeof payload.username === 'string' || typeof payload.name === 'string' || typeof payload.id === 'number' ){     // requerimiento 4
-            return UserService.create(payload.id, payload.username, payload.name)
-        }
-        else {  // requerimiento 2 y 3
-            return {error: 'necesitan tener un valor válido'}
-        }
-    }
-}*/
